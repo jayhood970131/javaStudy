@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jayhood.dao.Teacher1Mapper">
+    <select id="getTeacher1s" resultType="Teacher1">
+        select * from teacher
+    </select>
+
+    <select id="getTeacher1" resultMap="TeacherStudent">
+        select s.id sid, s.name sname, t.name tname, t.id tid from student s, teacher t where t.id = s.tid and t.id = #{tid}
+    </select>
+
+    <resultMap id="TeacherStudent" type="Teacher1">
+        <id property="id" column="tid"></id>
+        <result property="name" column="tname"></result>
+        <collection property="studentList" ofType="Student1">
+            <id property="id" column="sid"></id>
+            <result property="name" column="sname"></result>
+            <result property="tid" column="tid"></result>
+        </collection>
+    </resultMap>
+
+<!--    嵌套子查询-->
+    <select id="getTeacher2" resultMap="TeacherStudent2">
+        select * from teacher where id = #{fid}
+    </select>
+    <resultMap id="TeacherStudent2" type="Teacher1">
+        <id property="id" column="id"></id>
+        <collection property="studentList" javaType="ArrayList" ofType="Student1" select="getStudent1sByTeacher1Id" column="ffid=id"></collection>
+    </resultMap>
+
+    <select id="getStudent1sByTeacher1Id" resultType="Student1">
+        select * from student where tid = #{ffid}
+    </select>
+</mapper>

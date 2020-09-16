@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"></properties>
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    <typeAliases>
+        <typeAlias type="com.jayhood.pojo.Student" alias="Student"></typeAlias>
+        <typeAlias type="com.jayhood.pojo.Teacher" alias="Teacher"></typeAlias>
+        <typeAlias type="com.jayhood.pojo.Teacher1" alias="Teacher1"></typeAlias>
+        <typeAlias type="com.jayhood.pojo.Student1" alias="Student1"></typeAlias>
+        <typeAlias type="com.jayhood.pojo.Blog" alias="Blog"></typeAlias>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper class="com.jayhood.dao.StudentMapper"></mapper>
+        <mapper class="com.jayhood.dao.Teacher1Mapper"></mapper>
+        <mapper class="com.jayhood.dao.BlogMapper"></mapper>
+    </mappers>
+</configuration>
