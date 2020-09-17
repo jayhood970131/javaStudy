@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="Student" class="com.jayhood.pojo.Student">
+        <property name="name" value="傻子"></property>
+        <property name="address" ref="Address"></property>
+        <property name="books">
+            <array>
+                <value>春风十里</value>
+                <value>不如你</value>
+            </array>
+        </property>
+        <property name="hobbys">
+            <list>
+                <value>篮球</value>
+                <value>游泳</value>
+            </list>
+        </property>
+        <property name="card">
+            <map>
+                <entry key="id" value="1111"></entry>
+                <entry key="gg" value="goodgame"></entry>
+            </map>
+        </property>
+        <property name="games">
+            <set>
+                <value>吨吨吨</value>
+                <value>突突突</value>
+            </set>
+        </property>
+        <property name="wife">
+            <null></null>
+        </property>
+        <property name="info">
+            <props>
+                <prop key="driver">jdbc:mysql://localhost/superHero</prop>
+                <prop key="username">root</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="Address" class="com.jayhood.pojo.Address">
+        <property name="address" value="长春"></property>
+    </bean>
+</beans>

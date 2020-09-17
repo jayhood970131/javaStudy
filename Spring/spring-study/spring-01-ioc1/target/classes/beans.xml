@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="Hello" class="com.jayhood.pojo.Hello">
+        <property name="str" value="spring"></property>
+    </bean>
+
+    <bean id="User" class="com.jayhood.pojo.User">
+<!--        <property name="name" value="zou"></property>-->
+        <constructor-arg index="0" value="zouzouzou"></constructor-arg>
+    </bean>
+</beans>
