@@ -6,17 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-06-mybatis" />
-        <module name="spring-03-autoWired" />
-        <module name="spring-01-ioc1" />
-        <module name="spring-07-transaction" />
-        <module name="spring-02-di" />
-        <module name="spring-05-aop" />
-        <module name="spring-04-appConfig" />
+        <module name="springMVC-01-helloMVC" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring-07-transaction" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
