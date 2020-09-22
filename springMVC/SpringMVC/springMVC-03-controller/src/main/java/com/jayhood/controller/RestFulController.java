@@ -14,7 +14,7 @@ public class RestFulController {
     public String test1(@PathVariable int a, @PathVariable int b, Model model) {
         int res = a + b;
         model.addAttribute("msg", "结果为" + res);
-        return "test"; 
+        return "test";
     }
 
     @PostMapping("/add/{a}/{b}")
