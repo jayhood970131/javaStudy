@@ -2,15 +2,11 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springMVC-04-json" />
-        <module name="springMVC-02-annotation" />
-        <module name="springMVC-03-controller" />
-        <module name="springMVC-01-helloMVC" />
+        <module name="ssmbuild" />
       </profile>
     </annotationProcessing>
   </component>
