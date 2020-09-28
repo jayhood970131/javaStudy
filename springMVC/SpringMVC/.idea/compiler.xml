@@ -7,10 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springMVC-04-json" />
-        <module name="springMVC-02-annotation" />
         <module name="springMVC-03-controller" />
         <module name="springMVC-01-helloMVC" />
+        <module name="springMVC-05-ajax" />
+        <module name="spirngMVC-06-file" />
+        <module name="springMVC-04-json" />
+        <module name="springMVC-interceptor" />
+        <module name="springMVC-02-annotation" />
       </profile>
     </annotationProcessing>
   </component>

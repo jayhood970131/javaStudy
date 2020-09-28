@@ -13,6 +13,9 @@
         <module>springMVC-02-annotation</module>
         <module>springMVC-03-controller</module>
         <module>springMVC-04-json</module>
+        <module>springMVC-05-ajax</module>
+        <module>springMVC-interceptor</module>
+        <module>spirngMVC-06-file</module>
     </modules>
 
     <dependencies>
