@@ -33,7 +33,12 @@
     })
     Vue.component("todo-items", {
         props: ['item'],
-        template: '<li>{{item}}</li>'
+        template: '<li>{{item}}<button @click="remove">删除</button></li>',
+        methods: {
+            remove: function () {
+                alert("111")
+            }
+        }
     })
     var vm = new Vue({
         el: "#app",
