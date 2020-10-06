@@ -1,5 +1,6 @@
 package com.jayhood.controller;
 
+import org.apache.catalina.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +22,11 @@ public class LoginController {
             model.addAttribute("msg", "用户名或者密码错误");
             return "index";
         }
+    }
+
+    @RequestMapping("/user/logout")
+    public String userLogout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/index.html";
     }
 }
