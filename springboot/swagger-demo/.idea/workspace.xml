@@ -2,18 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43f165ec-32a6-4e84-9b9a-47112a96c576" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/java/com/jayhood/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/java/com/jayhood/config/ShiroConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/java/com/jayhood/config/UserRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/java/com/jayhood/config/UserRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/com/jayhood/config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/com/jayhood/config/ShiroConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/com/jayhood/config/UserRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/com/jayhood/config/UserRealm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_20.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger-demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger-demo.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -27,19 +34,33 @@
     </option>
   </component>
   <component name="ProjectId" id="1iX83zFwCISp7zRir6sfEUgoHK3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/jayhood" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Codes\javacodes\springboot\swagger-demo\src\main\java\com\jayhood" />
+      <recent name="D:\Codes\javacodes\springboot\swagger-demo\src\main\resources" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="SwaggerDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -61,10 +82,49 @@
       <option name="presentableId" value="Default" />
       <updated>1602042380454</updated>
       <workItem from="1602042383777" duration="283000" />
+      <workItem from="1602063226313" duration="7312000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1602075133249">
+      <screen x="-1920" y="8" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1602075133249" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1602075133248">
+      <screen x="-1920" y="8" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1602075133248" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1602075133248">
+      <screen x="-1920" y="8" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1602075133248" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1602075133249">
+      <screen x="-1920" y="8" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1602075133249" />
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1602075133249">
+      <screen x="-1920" y="8" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1602075133249" />
+    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1602075133249">
+      <screen x="-1920" y="8" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1602075133249" />
+    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1602075133249">
+      <screen x="-1920" y="8" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1602075133249" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1602075133249">
+      <screen x="-1920" y="8" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1602075133249" />
+    <state x="-1297" y="233" width="672" height="678" key="search.everywhere.popup" timestamp="1602064597426">
+      <screen x="-1920" y="8" width="1920" height="1040" />
+    </state>
+    <state x="-1297" y="233" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.8.1920.1040@-1920.8.1920.1040" timestamp="1602064597426" />
   </component>
 </project>
