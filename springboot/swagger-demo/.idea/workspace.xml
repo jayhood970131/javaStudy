@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="43f165ec-32a6-4e84-9b9a-47112a96c576" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/java/com/jayhood/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/java/com/jayhood/config/ShiroConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/java/com/jayhood/config/UserRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/java/com/jayhood/config/UserRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/com/jayhood/config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/com/jayhood/config/ShiroConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/com/jayhood/config/UserRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/com/jayhood/config/UserRealm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-97-shiro/shiro-springboot/target/classes/templates/login.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../Java/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\Java\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1iX83zFwCISp7zRir6sfEUgoHK3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RunManager">
+    <configuration name="SwaggerDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="swagger-demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jayhood.SwaggerDemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="43f165ec-32a6-4e84-9b9a-47112a96c576" name="Default Changelist" comment="" />
+      <created>1602042380454</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602042380454</updated>
+      <workItem from="1602042383777" duration="283000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+</project>

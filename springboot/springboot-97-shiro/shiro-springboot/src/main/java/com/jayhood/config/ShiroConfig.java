@@ -1,5 +1,6 @@
 package com.jayhood.config;
 
+import org.apache.ibatis.annotations.Update;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -32,7 +34,14 @@ public class ShiroConfig {
 
 
         Map<String, String> map = new LinkedHashMap<>();
+
+
+        // 授权
+        map.put("/user/add", "perms[user:add]");
+        map.put("/user/update", "perms[user:Update]");
+
         map.put("/user/*", "authc");
+
         // 添加shiro的内置过滤器
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
 
