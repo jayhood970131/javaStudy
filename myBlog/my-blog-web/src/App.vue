@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <h1>Vue-Router</h1>
     <router-link to="/login">登录</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -8,9 +10,7 @@
 
 
 export default {
-  name: 'App',
-  components: {
-  }
+  name: 'App'
 }
 </script>
 
