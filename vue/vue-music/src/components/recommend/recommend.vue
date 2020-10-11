@@ -1,28 +1,32 @@
 <template>
   <div class="recommend">
     <div class="recommend-content">
-      <div v-if="recommends.length" class="slider-wrapper" >
-        <slider>
-          <div v-for="(item,index) in recommends" :key="index">
-            <a :href="item.linkData.linkUrl">
-              <img :src="item.linkData.linkPicUrl">
-            </a>
-          </div>
-        </slider>
-      </div>
-      <div class="recommend-list">
-        <h1 class="list-title">热门歌单推荐</h1>
-        <ul>
-          <li v-for="(item, index) in playlist" :key="index" class="item">
-            <div class="icon">
-              <img :src="item.image" width="60" height="60">
+      <div>
+        <div v-if="recommends.length" class="slider-wrapper" >
+          <slider>
+            <div v-for="(item,index) in recommends" :key="index">
+              <a :href="item.linkData.linkUrl">
+                <img :src="item.linkData.linkPicUrl">
+              </a>
             </div>
-            <div class="text">
-              <h2 class="name" v-text="item.playlistName"></h2>
-              <p class="desc" v-text="item.playlistName"></p>
-            </div>
-          </li>
-        </ul>
+          </slider>
+        </div>
+        <div class="recommend-list">
+          <h1 class="list-title">热门歌单推荐</h1>
+          <ul>
+            <li v-for="(item, index) in playlist" :key="index" class="item">
+              <div class="icon">
+                <a :href="'https://m.music.migu.cn/v3/music/playlist/' + item.playlistId">
+                  <img :src="item.image" width="60" height="60">
+                </a>
+              </div>
+              <div class="text">
+                <h2 class="name" v-text="item.playlistName"></h2>
+                <p class="desc" v-text="item.playlistName"></p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
