@@ -1,9 +1,9 @@
 <template>
   <div class="recommend">
     <div class="recommend-content">
-      <div class="slider-wrapper">
+      <div v-if="recommends.length" class="slider-wrapper" >
         <slider>
-          <div v-for="item in recommends" :key="item">
+          <div v-for="(item,index) in recommends" :key="index">
             <a :href="item.linkData.linkUrl">
               <img :src="item.linkData.linkPicUrl">
             </a>
@@ -13,6 +13,15 @@
       <div class="recommend-list">
         <h1 class="list-title">热门歌单推荐</h1>
         <ul>
+          <li v-for="(item, index) in playlist" :key="index" class="item">
+            <div class="icon">
+              <img :src="item.image" width="60" height="60">
+            </div>
+            <div class="text">
+              <h2 class="name" v-text="item.playlistName"></h2>
+              <p class="desc" v-text="item.playlistName"></p>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -21,23 +30,39 @@
 
 <script>
   import Slider from '../../base/slider/slider'
-  import {getRecommend} from '../../api/recommend-migu'
+  import {getRecommend, getPlaylist} from '../../api/recommend-migu'
+  import {ERR_OK} from '../../api/config-migu'
 
   export default {
     data() {
       return {
-        recommends: ''
+        recommends: [],
+        playlist: []
       }
     },
     created () {
       this._getRecommend()
+      this._getPlaylist()
     },
     methods: {
       _getRecommend() {
-        this.$axios.get(getRecommend()).then(function (res) {
-          this.recommends = res.data.toString()
-        }).catch(function (err) {
-          console.log(err)
+          getRecommend().then(res => {
+            if (res.statusText === ERR_OK) {
+              this.recommends = res.data.result.results
+            } else {
+              console.log('无效轮播图数据')
+            }
+          }).catch(err => {
+            console.log(err)
+          })
+        },
+      _getPlaylist() {
+        getPlaylist().then(res => {
+          if (res.statusText === ERR_OK) {
+            this.playlist = res.data.msg
+          } else {
+            console.log('无效歌单数据')
+          }
         })
       }
     },

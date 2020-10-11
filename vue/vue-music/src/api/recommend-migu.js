@@ -9,3 +9,8 @@ export function getRecommend () {
   })
   return axios(url, data)
 }
+
+export function getPlaylist () {
+  const url = '/api/migu/remoting/client_play_list_tag'
+  return axios(url, null)
+}
