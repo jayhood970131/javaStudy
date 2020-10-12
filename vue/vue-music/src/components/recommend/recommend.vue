@@ -1,12 +1,12 @@
 <template>
   <div class="recommend">
-    <div class="recommend-content">
+    <scroll ref="scroll" class="recommend-content" :data="playlist">
       <div>
         <div v-if="recommends.length" class="slider-wrapper" >
           <slider>
             <div v-for="(item,index) in recommends" :key="index">
               <a :href="item.linkData.linkUrl">
-                <img :src="item.linkData.linkPicUrl">
+                <img @load="loadImage" :src="item.linkData.linkPicUrl">
               </a>
             </div>
           </slider>
@@ -28,7 +28,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </scroll>
   </div>
 </template>
 
@@ -36,6 +36,7 @@
   import Slider from '../../base/slider/slider'
   import {getRecommend, getPlaylist} from '../../api/recommend-migu'
   import {ERR_OK} from '../../api/config-migu'
+  import Scroll from '../../base/scroll/scroll'
 
   export default {
     data() {
@@ -68,10 +69,17 @@
             console.log('无效歌单数据')
           }
         })
+      },
+      loadImage() {
+        if (!this.checkLoaded) {
+          this.checkLoaded = true
+          this.$refs.scroll.refresh()
+        }
       }
     },
     components: {
-      Slider
+      Slider,
+      Scroll
     }
   }
 </script>
