@@ -10,9 +10,20 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      '/api': {
+    proxyTable: {     // 抓取咪咕音乐非音频数据
+      '/apis': {
         target: 'https://m.music.migu.cn',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/apis' : ''
+        }
+      },
+      '/api': {       // 抓取qq音乐音频的数据
+        target: 'https://u.y.qq.com',
+        bypass: function(req, res, proxyOptions) {
+          req.headers.referer = 'https://y.qq.com/'
+          req.headers.host = 'y.qq.com'
+        },
         changeOrigin: true,
         pathRewrite: {
           '^/api' : ''

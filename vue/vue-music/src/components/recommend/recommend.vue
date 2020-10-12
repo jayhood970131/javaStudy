@@ -6,7 +6,7 @@
           <slider>
             <div v-for="(item,index) in recommends" :key="index">
               <a :href="item.linkData.linkUrl">
-                <img @load="loadImage" :src="item.linkData.linkPicUrl">
+                <img class="needsclick" @load="loadImage" :src="item.linkData.linkPicUrl">
               </a>
             </div>
           </slider>
@@ -16,9 +16,9 @@
           <ul>
             <li v-for="(item, index) in playlist" :key="index" class="item">
               <div class="icon">
-                <a :href="'https://m.music.migu.cn/v3/music/playlist/' + item.playlistId">
-                  <img :src="item.image" width="60" height="60">
-                </a>
+<!--                <a :href="'https://m.music.migu.cn/v3/music/playlist/' + item.playlistId">-->
+                  <img v-lazy="item.image" width="60" height="60">
+<!--                </a>-->
               </div>
               <div class="text">
                 <h2 class="name" v-text="item.playlistName"></h2>
@@ -28,11 +28,15 @@
           </ul>
         </div>
       </div>
+      <div class="loading-container" v-show="!playlist.length">
+        <loading></loading>
+      </div>
     </scroll>
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
+  import Loading from '../../base/loading/loading'
   import Slider from '../../base/slider/slider'
   import {getRecommend, getPlaylist} from '../../api/recommend-migu'
   import {ERR_OK} from '../../api/config-migu'
@@ -79,7 +83,8 @@
     },
     components: {
       Slider,
-      Scroll
+      Scroll,
+      Loading
     }
   }
 </script>
