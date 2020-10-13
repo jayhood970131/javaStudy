@@ -1,26 +1,22 @@
 <template>
   <div class="singer">
-    <listview :data="singers"></listview>
+    <listview :data="singers" ></listview>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import Listview from '../../base/listview/listview'
   import {getSingerList} from '../../api/singer-qq'
+  import Singer from '../../common/js/singer'
   import {ERR_OK} from '../../api/config-qq'
+
+  const HOT_NAME = '热门'
+  const EXTRA_NAME = '#'
 
   export default {
     data() {
       return {
         singers: []
-      }
-    },
-    props: {
-      singerIndex: {
-        type: Array,
-        default: () => {
-          return [-100, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
-        }
       }
     },
     created () {
@@ -30,12 +26,44 @@
       _getSingerList() {
         getSingerList().then(res => {
           if (res.data.code === ERR_OK) {
-            this.singers = res.data.singerList.data.singerlist
+            this.singers = this._normalizeSingerList(res.data.singerList.data)
+            console.log(this.singers)
           }
         })
       },
-      _normalizeSingerList() {
-
+      _normalizeSingerList(list) {
+        let map = {
+          hot: {
+            title: HOT_NAME,
+            items: []
+          }
+        }
+        if (list.index === -100) {
+          for (let singerItem of list.singerlist) {
+            map.hot.items.push(new Singer({
+              name: singerItem.singer_name,
+              pic: singerItem.singer_pic
+            }))
+          }
+        }
+        // 为了得到有序列表，我们需要处理map
+        let hot = []
+        let extra = []
+        let ret = []
+        for (let key in map) {
+          let val = map[key]
+          if (val.title.match(/[a-zA-Z]/)) {
+            ret.push(val)
+          } else if (val.title === HOT_NAME) {
+            hot.push(val)
+          } else if (val.title === EXTRA_NAME) {
+            extra.push(val)
+          }
+        }
+        ret.sort((a, b) => {
+          return a.title.charCodeAt(0) - b.title.charCodeAt(0)
+        })
+        return hot.concat(ret, extra)
       }
     },
     components: {
