@@ -1,6 +1,7 @@
 <template>
   <div class="singer">
-    <listview :data="singers" ></listview>
+    <listview @select="selectSinger" :data="singers" ></listview>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -9,6 +10,7 @@
   import {getSingerList} from '../../api/singer-qq'
   import Singer from '../../common/js/singer'
   import {ERR_OK} from '../../api/config-qq'
+  import {mapMutations} from 'vuex'
 
   const HOT_NAME = '热门'
   const EXTRA_NAME = '#'
@@ -23,11 +25,16 @@
       this._getSingerList()
     },
     methods: {
+      selectSinger(singer) {
+        this.$router.push({
+          path: `/singer/${singer.name}`
+        })
+        this.setSinger(singer)
+      },
       _getSingerList() {
         getSingerList().then(res => {
           if (res.data.code === ERR_OK) {
             this.singers = this._normalizeSingerList(res.data.singerList.data)
-            console.log(this.singers)
           }
         })
       },
@@ -64,7 +71,10 @@
           return a.title.charCodeAt(0) - b.title.charCodeAt(0)
         })
         return hot.concat(ret, extra)
-      }
+      },
+      ...mapMutations({
+        setSinger: 'SET_SINGER'
+      })
     },
     components: {
       Listview
