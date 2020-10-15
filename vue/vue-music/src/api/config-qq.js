@@ -5,7 +5,9 @@ export const commonParams = {
   loginUin: 183191342,
   hostUin: 0,
   format: 'json',
-  notice: 0
+  notice: 0,
+  needNewCode: 0,
+  platform: 'yqq.json'
 }
 
 export const ERR_OK = 0

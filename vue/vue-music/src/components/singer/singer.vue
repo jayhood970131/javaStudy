@@ -48,6 +48,7 @@
         if (list.index === -100) {
           for (let singerItem of list.singerlist) {
             map.hot.items.push(new Singer({
+              mid: singerItem.singer_mid,
               name: singerItem.singer_name,
               pic: singerItem.singer_pic
             }))

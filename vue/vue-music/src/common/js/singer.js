@@ -1,5 +1,6 @@
 export default class Singer {
-  constructor ({name, pic}) {
+  constructor ({mid, name, pic}) {
+    this.mid = mid
     this.name = name
     this.pic = pic
   }
