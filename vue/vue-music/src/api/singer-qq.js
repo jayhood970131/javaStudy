@@ -21,3 +21,13 @@ export function getSingerDetail (singerMid) {
   })
   return axios(url, queryParams)
 }
+
+export function getPlaySongVkey (mid) {
+  const url = '/api/cgi-bin/musics.fcg?-=getplaysongvkey2796803385714832'
+  const dataJson = {req: {module: 'CDN.SrfCdnDispatchServer', method: 'GetCdnDispatch', param: {guid: '4987830008', calltype: 0, userip: ''}}, req_0: {module: 'vkey.GetVkeyServer', method: 'CgiGetVkey', param: {guid: '4987830008', songmid: [mid], songtype: [0], uin: '183191342', loginflag: 1, platform: '20'}}, comm: {uin: 183191342, format: 'json', ct: 24, cv: 0}}
+  const queryParams = Object.assign({}, commonParams, {
+    sign: getSign(dataJson),
+    data: JSON.stringify(dataJson)
+  })
+  return axios(url, queryParams)
+}

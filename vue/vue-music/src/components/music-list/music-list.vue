@@ -16,7 +16,7 @@
     <div class="bg-layer" ref="layer"></div>
     <scroll @scroll="scroll"  :probe-type="probeType" :listen-scroll="listenScroll" :data="songs" class="list" ref="list">
       <div class="song-list-wrapper">
-        <song-list :songs="songs"></song-list>
+        <song-list @select="selectItem" :songs="songs"></song-list>
       </div>
       <div class="loading-container" v-show="!songs.length">
         <loading></loading>
@@ -30,6 +30,9 @@
   import Scroll from '../../base/scroll/scroll'
   import {prefixStyle} from '../../common/js/dom'
   import Loading from '../../base/loading/loading'
+  import {mapActions} from 'vuex'
+  import {getPlaySongVkey} from '../../api/singer-qq'
+  import {ERR_OK} from '../../api/config-qq'
 
   const RESERVED_HEIGHT = 40
   const transform = prefixStyle('transform')
@@ -107,7 +110,25 @@
       },
       back() {
         this.$router.back()
-      }
+      },
+      selectItem(item, index) {
+        let me = this
+        getPlaySongVkey(item.mid).then(function (res) {
+          if (res.data.code === ERR_OK) {
+            let url = res.data.req_0.data.sip[0] + res.data.req_0.data.midurlinfo[0].purl
+            me.selectPlay({
+              list: me.songs,
+              index: index,
+              url: url
+            })
+          }
+        }).catch(err => {
+          console.log(err + '无法得到音频数据')
+        })
+      },
+      ...mapActions([
+        'selectPlay'
+      ])
     }
   }
 </script>
