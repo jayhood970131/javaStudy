@@ -32,13 +32,13 @@
               <i class="icon-sequence"></i>
             </div>
             <div class="icon i-left">
-              <i class="icon-prev"></i>
+              <i class="icon-prev" @click="prev"></i>
             </div>
             <div class="icon i-center">
               <i @click="togglePlaying" :class="playIcon"></i>
             </div>
             <div class="icon i-right">
-              <i class="icon-next"></i>
+              <i class="icon-next" @click="next"></i>
             </div>
             <div class="icon i-right">
               <i class="icon-not-favorite"></i>
@@ -91,10 +91,25 @@
         'playlist',
         'currentSong',
         'currentUrl',
-        'playing'
+        'playing',
+        'currentIndex'
       ])
     },
     methods: {
+      next() {
+        let index = this.currentIndex + 1
+        if (index === this.playlist.length) {
+          index = 0
+        }
+        this.$emit('next', index)
+      },
+      prev() {
+        let index = this.currentIndex - 1
+        if (index === -1) {
+          index = this.playlist.length - 1
+        }
+        this.$emit('prev', index)
+      },
       togglePlaying() {
         this.setPlayingState(!this.playing)
       },
@@ -161,14 +176,15 @@
       },
       ...mapMutations({
         setFullScreen: 'SET_FULL_SCREEN',
-        setPlayingState: 'SET_PLAYING_STATE'
+        setPlayingState: 'SET_PLAYING_STATE',
+        setCurrentIndex: 'SET_CURRENT_INDEX'
       })
     },
     watch: {
       currentSong() {
-        this.timer = setTimeout(() => {
-          this.$refs.audio.play()
-        }, 1000)
+        // this.timer = setTimeout(() => {
+        //   this.$refs.audio.play()
+        // }, 1000)
       },
       playing(newPlaying) {
         const audio = this.$refs.audio
