@@ -27,17 +27,23 @@
           </div>
         </div>
         <div class="bottom">
+          <div class="progress-wrapper">
+            <span class="time time-l"></span>
+            <div class="progress-bar-wrapper">
+            </div>
+            <span class="time time-r"></span>
+          </div>
           <div class="operators">
             <div class="icon i-left">
               <i class="icon-sequence"></i>
             </div>
-            <div class="icon i-left">
-              <i class="icon-prev" @click="prev"></i>
+            <div class="icon i-left" :class="disableCls">
+              <i class="icon-prev" @click="prev" ></i>
             </div>
-            <div class="icon i-center">
+            <div class="icon i-center" :class="disableCls">
               <i @click="togglePlaying" :class="playIcon"></i>
             </div>
-            <div class="icon i-right">
+            <div class="icon i-right" :class="disableCls">
               <i class="icon-next" @click="next"></i>
             </div>
             <div class="icon i-right">
@@ -64,7 +70,7 @@
         </div>
       </div>
     </transition>
-    <audio :src="currentUrl" ref="audio"></audio>
+    <audio :src="currentUrl" ref="audio" @canplay="ready" @error="error"></audio>
   </div>
 </template>
 
@@ -76,7 +82,15 @@
   const transform = prefixStyle('transform')
 
   export default {
+    data() {
+      return {
+        songReady: false
+      }
+    },
     computed: {
+      disableCls() {
+        return this.songReady ? '' : 'disable'
+      },
       cdCls() {
         return this.playing ? 'play' : 'play pause'
       },
@@ -96,21 +110,48 @@
       ])
     },
     methods: {
+      ready() {
+        this.songReady = true
+      },
+      error() {
+        this.songReady = true
+      },
       next() {
+        if (!this.songReady) {
+          return
+        }
         let index = this.currentIndex + 1
         if (index === this.playlist.length) {
           index = 0
         }
         this.$emit('next', index)
+        this.$nextTick(function () {
+          if (!this.playing) {
+            this.togglePlaying()
+          }
+        })
+        this.songReady = false
       },
       prev() {
+        if (!this.songReady) {
+          return
+        }
         let index = this.currentIndex - 1
         if (index === -1) {
           index = this.playlist.length - 1
         }
         this.$emit('prev', index)
+        this.$nextTick(function () {
+          if (!this.playing) {
+            this.togglePlaying()
+          }
+        })
+        this.songReady = false
       },
       togglePlaying() {
+        if (!this.songReady) {
+          return
+        }
         this.setPlayingState(!this.playing)
       },
       back() {
