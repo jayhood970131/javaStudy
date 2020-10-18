@@ -28,10 +28,10 @@
         </div>
         <div class="bottom">
           <div class="progress-wrapper">
-            <span class="time time-l"></span>
+            <span class="time time-l">{{_format(currentTime)}}</span>
             <div class="progress-bar-wrapper">
             </div>
-            <span class="time time-r"></span>
+            <span class="time time-r">{{_format(currentSong.duration)}}</span>
           </div>
           <div class="operators">
             <div class="icon i-left">
@@ -70,7 +70,7 @@
         </div>
       </div>
     </transition>
-    <audio :src="currentUrl" ref="audio" @canplay="ready" @error="error"></audio>
+    <audio :src="currentUrl" ref="audio" @canplay="ready" @error="error" @timeupdate="updateTime"></audio>
   </div>
 </template>
 
@@ -84,7 +84,8 @@
   export default {
     data() {
       return {
-        songReady: false
+        songReady: false,
+        currentTime: 0
       }
     },
     computed: {
@@ -110,6 +111,9 @@
       ])
     },
     methods: {
+      updateTime(e) {
+        this.currentTime = e.target.currentTime
+      },
       ready() {
         this.songReady = true
       },
@@ -199,6 +203,20 @@
       afterLeave() {
         this.$refs.cdWrapper.style.transition = ''
         this.$refs.cdWrapper.style[transform] = ''
+      },
+      _format(interval) {
+        interval = interval | 0
+        const minute = interval / 60 | 0
+        const second = this._pad(interval % 60)
+        return `${minute}:${second}`
+      },
+      _pad(num, n = 2) {
+        let len = num.toString().length
+        while (len < n) {
+          num = '0' + num
+          len++
+        }
+        return num
       },
       _getPosAndScale() {
         const targetWidth = 40
