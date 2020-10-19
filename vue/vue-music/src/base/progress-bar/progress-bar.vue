@@ -1,11 +1,11 @@
 <template>
-  <div class="progress-bar" ref="progressBar">
+  <div class="progress-bar" ref="progressBar" @click="progressClick">
     <div class="bar-inner">
       <div class="progress" ref="progress"></div>
       <div class="progress-btn-wrapper" ref="progressBtn"
            @touchstart.prevent="progressTouchStart"
            @touchmove.prevent="progressTouchMove"
-           @touchend.prevent="progressTouchEnd"
+           @touchend="progressTouchEnd"
       >
         <div class="progress-btn"></div>
       </div>
@@ -24,6 +24,10 @@
       this.touch = {}
     },
     methods: {
+      progressClick(e) {
+        this._offset(e.offsetX)
+        this._triggerPercent()
+      },
       progressTouchStart(e) {
         this.touch.initiated = true
         this.touch.startX = e.touches[0].pageX
@@ -34,10 +38,22 @@
           return
         }
         const deltaX = e.touches[0].pageX - this.touch.startX
-        const 
+        const offsetWidth = Math.min(Math.max(0, this.touch.left + deltaX), this.$refs
+        .progressBar.clientWidth - progressBtnWidth)
+        this._offset(offsetWidth)
       },
-      progressTouchEnd(e) {
-
+      progressTouchEnd() {
+        this.touch.initiated = false
+        this._triggerPercent()
+      },
+      _triggerPercent() {
+        const barWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
+        const percent = this.$refs.progress.clientWidth / barWidth
+        this.$emit('percentChange', percent)
+      },
+      _offset(offsetWidth) {
+        this.$refs.progress.style.width = `${offsetWidth}px`
+        this.$refs.progressBtn.style[transform] = `translate3d(${offsetWidth}px, 0, 0)`
       }
     },
     props: {
@@ -48,11 +64,10 @@
     },
     watch: {
       percent(newPercent) {
-        if (newPercent >= 0) {
+        if (newPercent >= 0 && !this.touch.initiated) {
           const barWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
           const offsetWidth = newPercent * barWidth
-          this.$refs.progress.style.width = `${offsetWidth}px`
-          this.$refs.progressBtn.style[transform] = `translate3d(${offsetWidth}px, 0, 0)`
+          this._offset(offsetWidth)
         }
       }
     }
