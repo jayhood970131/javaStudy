@@ -6,7 +6,7 @@
     <h1 class="title" v-html="title"></h1>
     <div class="bg-image" :style="bgStyle" ref="bgImage">
       <div class="play-wrapper">
-        <div class="play" v-show="songs.length > 0" ref="playBtn">
+        <div class="play" v-show="songs.length > 0" ref="playBtn" @click="random">
           <i class="icon-play"></i>
           <span class="text">随机播放全部</span>
         </div>
@@ -30,7 +30,7 @@
   import Scroll from '../../base/scroll/scroll'
   import {prefixStyle} from '../../common/js/dom'
   import Loading from '../../base/loading/loading'
-  import {mapActions} from 'vuex'
+  import {mapActions, mapMutations, mapGetters} from 'vuex'
   import {getPlaySongVkey} from '../../api/singer-qq'
   import {ERR_OK} from '../../api/config-qq'
 
@@ -68,7 +68,10 @@
     computed: {
       bgStyle() {
         return `background-image:url(${this.bgImage})`
-      }
+      },
+      ...mapGetters([
+        'currentSong'
+      ])
     },
     mounted() {
       this.imageHeight = this.$refs.bgImage.clientHeight
@@ -105,6 +108,22 @@
       }
     },
     methods: {
+      random() {
+        this.setRandomList(this.songs)
+        this.setCurrentIndex(0)
+        let me = this
+        getPlaySongVkey(this.currentSong.mid).then(function (res) {
+          if (res.data.code === ERR_OK) {
+            let url = res.data.req_0.data.sip[0] + res.data.req_0.data.midurlinfo[0].purl
+            me.randomPlay({
+              list: me.songs,
+              url: url
+            })
+          }
+        }).catch(err => {
+          console.log(err + '无法得到音频数据')
+        })
+      },
       scroll(pos) {
         this.scrollY = pos.y
       },
@@ -127,8 +146,13 @@
         })
       },
       ...mapActions([
-        'selectPlay'
-      ])
+        'selectPlay',
+        'randomPlay'
+      ]),
+      ...mapMutations({
+        setRandomList: 'SET_RANDOM_LIST',
+        setCurrentIndex: 'SET_CURRENT_INDEX'
+      })
     }
   }
 </script>

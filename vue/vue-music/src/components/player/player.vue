@@ -73,7 +73,7 @@
         </div>
       </div>
     </transition>
-    <audio :src="currentUrl" ref="audio" @canplay="ready" @error="error" @timeupdate="updateTime"></audio>
+    <audio :src="currentUrl" ref="audio" @canplay="ready" @error="error" @timeupdate="updateTime" @ended="end"></audio>
   </div>
 </template>
 
@@ -131,6 +131,17 @@
       ])
     },
     methods: {
+      end() {
+        if (this.mode === playMode.loop) {
+          this.loop()
+        } else {
+          this.next()
+        }
+      },
+      loop() {
+        this.$refs.audio.currentTime = 0
+        this.$refs.audio.play()
+      },
       changeMode() {
         const mode = (this.mode + 1) % 3
         this.setPlayMode(mode)
@@ -287,12 +298,12 @@
     },
     watch: {
       currentSong(newSong, oldSong) {
-        if (newSong.mid === oldSong.mid) {
-          return
-        }
-        this.$nextTick(() => {
-          this.$refs.audio.play()
-        })
+        // if (newSong.mid === oldSong.mid) {
+        //   return
+        // }
+        // this.$nextTick(() => {
+        //   this.$refs.audio.play()
+        // })
       },
       playing(newPlaying) {
         const audio = this.$refs.audio

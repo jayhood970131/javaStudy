@@ -1,4 +1,5 @@
 import * as types from './mutation-type'
+import {shuffle} from '../common/js/util'
 
 const mutations = {
   [types.SET_SINGER] (state, singer) {
@@ -24,6 +25,9 @@ const mutations = {
   },
   [types.SET_CURRENT_URL] (state, url) {
     state.currentUrl = url
+  },
+  [types.SET_RANDOM_LIST] (state, list) {
+    state.playlist = shuffle(list)
   }
 }
 
